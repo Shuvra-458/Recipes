@@ -222,6 +222,3 @@ Open `frontend/index.html` in a browser or serve it using a local static server.
 
 ---
 
-## Conclusion
-
-This project demonstrates a production-oriented approach to API design, data ingestion, and frontend integration using a clean and minimal stack. The solution fully satisfies the requirements outlined in the assessment and handles real-world data edge cases effectively.
