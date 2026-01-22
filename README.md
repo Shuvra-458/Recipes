@@ -2,7 +2,6 @@
 
 ## Overview
 
-This project implements a complete end-to-end solution for the **Recipe Data Collection and API Development** take-home assessment provided by **Securin**.
 
 The system ingests a large JSON dataset of recipes, stores normalized data in a PostgreSQL database, exposes RESTful APIs for querying and searching recipes, and provides a lightweight frontend built with plain HTML, CSS, and JavaScript for visualization.
 
