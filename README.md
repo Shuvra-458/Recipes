@@ -1,4 +1,4 @@
-# Recipes API – Securin Take-Home Assessment
+# Recipes API
 
 ## Overview
 
