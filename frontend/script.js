@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000/api/recipes";
+const API_BASE = "https://recipes-awbz.onrender.com/api/recipes";
 
 let page = 1;
 let limit = 15;
