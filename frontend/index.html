@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recipes Dashboard</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Recipes</h1>
+    <p>Browse and search recipes</p>
+  </header>
+
+  <!-- Filters -->
+  <section class="filters">
+    <input type="text" id="titleFilter" placeholder="Search title…" />
+    <input type="text" id="cuisineFilter" placeholder="Cuisine" />
+    <input type="text" id="ratingFilter" placeholder="Rating (>=4.5)" />
+    <input type="text" id="caloriesFilter" placeholder="Calories (<=400)" />
+    <button onclick="searchRecipes()">Search</button>
+  </section>
+
+  <!-- Table -->
+  <section class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Cuisine</th>
+          <th>Rating</th>
+          <th>Total Time</th>
+          <th>Serves</th>
+        </tr>
+      </thead>
+      <tbody id="recipesTable"></tbody>
+    </table>
+  </section>
+
+  <!-- Pagination -->
+  <section class="pagination">
+    <button onclick="prevPage()">Prev</button>
+    <span id="pageInfo"></span>
+    <button onclick="nextPage()">Next</button>
+  </section>
+
+  <!-- Drawer -->
+  <aside id="drawer" class="drawer hidden">
+    <button class="close-btn" onclick="closeDrawer()">✕</button>
+    <div id="drawerContent"></div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
