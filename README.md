@@ -199,13 +199,13 @@ uvicorn app.main:app --reload
 Backend will be available at:
 
 ```
-http://127.0.0.1:8000
+https://recipes-awbz.onrender.com/docs
 ```
 
 Swagger UI:
 
 ```
-http://127.0.0.1:8000/docs
+https://recipes-awbz.onrender.com/docs
 ```
 
 ### Frontend
