@@ -15,6 +15,7 @@ class Recipe(Base):
     cook_time = Column(Integer, nullable=True)
     total_time = Column(Integer, nullable=True)
     description = Column(Text)
+    ingredients = Column(JSONB)
     nutrients = Column(JSONB)
     instructions = Column(JSONB)
     serves = Column(String(100))
