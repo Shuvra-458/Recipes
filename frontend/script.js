@@ -72,7 +72,7 @@ function openDrawer(recipe) {
 
   document.getElementById("drawerContent").innerHTML = `
     <h2>${recipe.title}</h2>
-    <p><strong>Cuisine:</strong> ${recipe.cuisine}
+    <p><strong>Cuisine:</strong> ${recipe.cuisine}<br/>
        <strong>Region:</strong> ${recipe.continent ?? "-"}<br/>
        <strong>Country/State:</strong> ${recipe.country_state ?? "-"}
     </p>
