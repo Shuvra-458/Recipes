@@ -64,6 +64,7 @@ def load_recipes():
             cook_time = safe_int(item.get("cook_time")),
             total_time = safe_int(item.get("total_time")),
             description = item.get("description"),
+            ingredients = item.get("ingredients"),
             nutrients = item.get("nutrients"),
             instructions = item.get("instructions"),
             serves = item.get("serves"),
