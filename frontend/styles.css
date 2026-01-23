@@ -135,3 +135,12 @@ tbody tr:hover {
 .nutrition-list li strong {
   color: #38bdf8;
 }
+
+.drawer ul {
+  margin-left: 18px;
+}
+
+.drawer li {
+  margin-bottom: 6px;
+}
+
