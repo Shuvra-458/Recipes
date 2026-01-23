@@ -13,6 +13,7 @@ class RecipeResponse(BaseModel):
     cook_time: Optional[int]
     total_time: Optional[int]
     description: Optional[str]
+    ingredients: Optional[List[str]]
     nutrients: Optional[Dict[str, Any]]
     instructions: Optional[List[str]]
     serves: Optional[str]
