@@ -64,6 +64,11 @@ function openDrawer(recipe) {
   const drawer = document.getElementById("drawer");
   drawer.classList.remove("hidden");
 
+  const ingredientsHtml = recipe.ingredients
+  ? recipe.ingredients.map(i => `<li>${i}</li>`).join("")
+  : "<li>No ingredients available</li>";
+
+
   const steps = recipe.instructions
     ? recipe.instructions.map((s, i) => `<li>${s}</li>`).join("")
     : "<li>No instructions available</li>";
@@ -78,6 +83,9 @@ function openDrawer(recipe) {
     </p>
 
     <p>${recipe.description ?? ""}</p>
+
+    <h3>Ingredients</h3>
+    <ul>${ingredientsHtml}</ul>
 
     <h3>Instructions</h3>
     <ol>${steps}</ol>
