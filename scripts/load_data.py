@@ -54,6 +54,9 @@ def load_recipes():
 
     for item in data:
         recipe = Recipe(
+            continent = item.get("Contient"),
+            country_state = item.get("Country_State"),
+            source_url = item.get("URL"),
             cuisine = item.get("cuisine"),
             title = item.get("title"),
             rating = safe_float(item.get("rating")),
