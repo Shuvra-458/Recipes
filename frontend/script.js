@@ -72,7 +72,10 @@ function openDrawer(recipe) {
 
   document.getElementById("drawerContent").innerHTML = `
     <h2>${recipe.title}</h2>
-    <p><strong>Cuisine:</strong> ${recipe.cuisine}</p>
+    <p><strong>Cuisine:</strong> ${recipe.cuisine}
+       <strong>Region:</strong> ${recipe.continent ?? "-"}<br/>
+       <strong>Country/State:</strong> ${recipe.country_state ?? "-"}
+    </p>
 
     <p>${recipe.description ?? ""}</p>
 
@@ -81,6 +84,13 @@ function openDrawer(recipe) {
 
     <h3>Nutrition</h3>
     ${nutritionHtml}
+
+    <h3>Source<h3>
+    ${
+      recipe.source_url
+      ? `<a href="${recipe.source_url}" target="_blank">View original recipe</a>`
+      : "<p>No source available</p>"
+    }
   `;
 }
 
