@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional, Dict, Any, List
 
+#This block of code declares the response fields to be returned by the API /api/recipes
 class RecipeResponse(BaseModel):
     id: int
     continent: Optional[str]
@@ -19,7 +20,7 @@ class RecipeResponse(BaseModel):
     serves: Optional[str]
 
     class Config:
-        from_attributes = True
+        from_attributes = True #segregates the values passed in the JSON response as fields matching the model's field names
 
 class PaginatedRecipesResponse(BaseModel):
     page: int
