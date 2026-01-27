@@ -9,6 +9,7 @@ from app.schemas import RecipeResponse
 
 router = APIRouter(prefix="/api/recipes", tags=["Recipes"])
 
+#This is the api for getting the recipes from the Postgres database and displaying it in a paginated format
 @router.get("", response_model=PaginatedRecipesResponse)
 def fetch_recipes(
     page: int = Query(1, ge=1),
@@ -24,6 +25,7 @@ def fetch_recipes(
         "data": recipes,
     }
 
+#This is the api which fetches the recipe on the basis of the search filter values given as input by the user
 @router.get("/search", response_model=dict)
 def search(
     title: str | None = None,
