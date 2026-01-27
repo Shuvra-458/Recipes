@@ -7,6 +7,7 @@ from app.services.recipe_service import search_recipes
 from app.schemas import PaginatedRecipesResponse
 from app.schemas import RecipeResponse
 
+#This is the base api for the program
 router = APIRouter(prefix="/api/recipes", tags=["Recipes"])
 
 #This is the api for getting the recipes from the Postgres database and displaying it in a paginated format
