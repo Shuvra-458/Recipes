@@ -7,28 +7,19 @@ from app.models import Recipe
 
 DATA_FILE = "data/US_recipes_null.Pdf.json"
 
+#This block searches the JSON Data for float values (e.g: ratings)
 def safe_float(value):
     try:
         if value is None:
             return None
         val = float(value)
-        if math.isnan(val):
+        if math.isnan(val):  #used to handle null fields
             return None
         return val
     except (ValueError, TypeError):
         return None
 
-def safe_int(value):
-    try:
-        if value is None:
-            return None
-        val = float(value)
-        if math.isnan(val):
-            return None
-        return val
-    except (ValueError, TypeError):
-        return None
-    
+#This block searches the JSON Data for integer values (e.g: prep_time, total_time)
 def safe_int(value):
     try:
         if value is None:
@@ -37,7 +28,8 @@ def safe_int(value):
         return val
     except (ValueError, TypeError):
         return None
-    
+
+#This block retrieves the fields from the input JSON data 
 def load_recipes():
     db: Session = SessionLocal()
     
@@ -54,7 +46,7 @@ def load_recipes():
 
     for item in data:
         recipe = Recipe(
-            continent = item.get("Contient"),
+            continent = item.get("Contient"), #The arguement in the get() method must accurately match the name of the field specified in the input JSON data
             country_state = item.get("Country_State"),
             source_url = item.get("URL"),
             cuisine = item.get("cuisine"),
@@ -70,8 +62,8 @@ def load_recipes():
             serves = item.get("serves"),
         )
 
-        db.add(recipe)
-        inserted += 1
+        db.add(recipe) #Adds the obtained fields from the input JSON data into the Postgres Database
+        inserted += 1  #Counts the total number of rows inserted
 
     db.commit()
     db.close()
