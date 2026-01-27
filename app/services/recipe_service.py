@@ -45,15 +45,15 @@ def search_recipes(
 ):
     query = db.query(Recipe)
 
-    #Title (partial match)
+    #This is used to match the recipe containing the input words from the user
     if title: 
         query = query.filter(Recipe.title.ilike(f"%{title}%"))
 
-    #Cuisine (exact match)
+    #This is used to match the name of the cuisine
     if cuisine:
         query = query.filer(Recipe.cuisine == cuisine)
 
-    #Rating filter
+    #This block is used to filter recipes on the basis of operator and rating
     if rating:
         op, value = parse_operator(rating)
         if op == ">=":
@@ -63,7 +63,7 @@ def search_recipes(
         elif op == "=":
             query = query.filer(Recipe.rating == value)
         
-    #Total time filter
+    #This block is used to filter recipes on the basis of total time taken
     if total_time:
         op, value = parse_operator(total_time)
         if op == ">=":
@@ -73,7 +73,7 @@ def search_recipes(
         elif op == "=":
             query = query.filter(Recipe.total_time == value)
     
-    #Calories filter
+    #This block filters recipes on the basis of operators and desired value of calories
     if calories:
         op, value = parse_operator(calories)
 
