@@ -3,7 +3,7 @@ from sqlalchemy import desc
 from app.models import Recipe
 from sqlalchemy import and_
 from sqlalchemy.dialects.postgresql import JSONB
-from sqlalchemy import cast, Float
+from sqlalchemy import cast, Float, func
 
 
 import re
@@ -51,7 +51,7 @@ def search_recipes(
 
     #This is used to match the name of the cuisine
     if cuisine:
-        query = query.filer(Recipe.cuisine == cuisine)
+        query = query.filter(Recipe.cuisine == cuisine)
 
     #This block is used to filter recipes on the basis of operator and rating
     if rating:
@@ -61,7 +61,7 @@ def search_recipes(
         elif op == "<=":
             query = query.filter(Recipe.rating <= value)
         elif op == "=":
-            query = query.filer(Recipe.rating == value)
+            query = query.filter(Recipe.rating == value)
         
     #This block is used to filter recipes on the basis of total time taken
     if total_time:
@@ -78,7 +78,11 @@ def search_recipes(
         op, value = parse_operator(calories)
 
         calories_expr = cast(
-            Recipe.nutrients["calories"].astext.replace(" kcal", ""),
+            func.replace(
+                Recipe.nutrients["calories"].astext,
+                " kcal",
+                ""
+            ),
             Float
         )
 
